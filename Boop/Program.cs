@@ -1,3 +1,9 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using Boop.Panels.Top;
 
-Console.WriteLine("Hello, World!");
+HardwareUsage.AddHardwareInfo("CPU", 12);
+HardwareUsage.AddHardwareInfo("RAM", 50);
+HardwareUsage.AddHardwareInfo("Network", 80);
+
+
+
+AnsiConsole.Write(HardwareUsage.CreateHardwareInfoPanel(""));
