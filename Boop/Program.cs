@@ -6,5 +6,5 @@ HardwareUsage.AddHardwareInfo("RAM", 50);
 HardwareUsage.AddHardwareInfo("Network", 80);
 
 
-AnsiConsole.Write(SystemInfo.CreateSystemInfoPanel("", SystemInfoService.Instance.HardwareInfo));
+AnsiConsole.Write(SystemInfo.CreateSystemInfoPanel(SystemInfoService.Instance.HardwareInfo));
 AnsiConsole.Write(HardwareUsage.CreateHardwareInfoPanel(""));
