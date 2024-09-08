@@ -4,9 +4,9 @@ namespace Boop.Types.PresentationTypes;
 
 public record SystemInfo
 {
-    [DisplayName("Machine Name")]
+    [DisplayName("Machine Name", false)]
     public string MachineName { get; init; }
-    [DisplayName("User Name")]
+    [DisplayName("User Name", false)]
     public string UserName { get; init; }
     [DisplayName("CPU Model")]
     public string CPUModel { get; init; }
@@ -20,9 +20,18 @@ public record SystemInfo
     public static string GetDisplayName(string propertyName)
     {
         var property = typeof(SystemInfo).GetProperty(propertyName);
-        DisplayNameAttribute? displayNameAttribute = property.GetCustomAttributes(typeof(DisplayNameAttribute), false)
+        DisplayNameAttribute? displayNameAttribute = property?.GetCustomAttributes(typeof(DisplayNameAttribute), false)
             .FirstOrDefault() as DisplayNameAttribute;
 
         return displayNameAttribute?.DisplayName ?? property.Name;
+    }
+    
+    public static bool AutoRender(string propertyName)
+    {
+        var property = typeof(SystemInfo).GetProperty(propertyName);
+        DisplayNameAttribute? displayNameAttribute = property?.GetCustomAttributes(typeof(DisplayNameAttribute), false)
+            .FirstOrDefault() as DisplayNameAttribute;
+
+        return displayNameAttribute?.AutoRender ?? true;
     }
 }

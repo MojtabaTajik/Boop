@@ -6,18 +6,18 @@ using System.Collections.Generic;
 
 public class ThemeService : IDisposable
 {
-    private static ThemeService? _instance;
     public static ThemeService Instance => _instance ??= new ThemeService();
     
+    private static ThemeService? _instance;
     private const string StylesPath = "styles.json";
     private const string DefaultStyle = "white bold";
-    private readonly Dictionary<string, string>? _styles;
+    private Dictionary<string, string>? _styles;
 
     private ThemeService()
     {
         if (!File.Exists(StylesPath))
         {
-            _styles = new();
+            GenerateDefaultStyle();
             SaveStyles();
         }
         
@@ -26,6 +26,15 @@ public class ThemeService : IDisposable
     }
 
     public string GetStyle(string key) => _styles?.GetValueOrDefault(key, DefaultStyle) ?? DefaultStyle;
+
+    private void GenerateDefaultStyle()
+    {
+        _styles ??= new Dictionary<string, string>();
+        _styles.Add("CPUModel", "blue bold");
+        _styles.Add("OSVersion", "green bold");
+        _styles.Add("TotalMemory", "red bold");
+        _styles.Add("SystemArchitecture", "yellow bold");
+    }
     
     private void SaveStyles()
     {
