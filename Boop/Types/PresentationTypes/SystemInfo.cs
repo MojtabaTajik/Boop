@@ -1,4 +1,4 @@
-﻿namespace Boop.Types;
+﻿namespace Boop.Types.PresentationTypes;
 
 public class SystemInfo
 {

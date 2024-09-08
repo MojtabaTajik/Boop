@@ -2,7 +2,7 @@
 
 public static class SystemInfo
 {
-    public static Panel CreateSystemInfoPanel(string title, Types.SystemInfo systemInfo)
+    public static Panel CreateSystemInfoPanel(string title, Types.PresentationTypes.SystemInfo systemInfo)
     {
         var grid = new Grid()
             .AddColumn(new GridColumn().NoWrap().PadRight(4))
