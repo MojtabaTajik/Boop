@@ -1,5 +1,4 @@
 ﻿using Boop.PInvokes.Memory;
-using Boop.Types;
 using Boop.Types.PresentationTypes;
 using Microsoft.Win32;
 
