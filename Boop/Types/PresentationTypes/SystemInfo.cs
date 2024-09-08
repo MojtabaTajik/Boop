@@ -2,10 +2,10 @@
 
 public class SystemInfo
 {
-    public string MachineName { get; set; }
-    public string CPUModel { get; set; }
-    public string CPUCoreCount { get; set; }
-    public string OSVersion { get; set; }
-    public string TotalMemory { get; set; }
-    public string SystemArchitecture { get; set; }
+    public string MachineName { get; init; }
+    public string CPUModel { get; init; }
+    public string CPUCoreCount { get; init; }
+    public string OSVersion { get; init; }
+    public string TotalMemory { get; init; }
+    public string SystemArchitecture { get; init; }
 }
