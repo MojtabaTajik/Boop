@@ -17,8 +17,8 @@ public class SystemInfoService
         HardwareInfo = new SystemInfo
         {
             MachineName = Environment.MachineName,
-            CPUModel = GetCpuModel(),
-            CPUCoreCount = Environment.ProcessorCount.ToString(),
+            UserName = Environment.UserName,
+            CPUModel = $"{GetCpuModel()} ({Environment.ProcessorCount} Cores)",
             OSVersion = Environment.OSVersion.VersionString,
             TotalMemory = GetTotalMemory(),
             SystemArchitecture = Environment.Is64BitOperatingSystem ? "64-bit" : "32-bit"
