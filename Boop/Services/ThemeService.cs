@@ -6,9 +6,9 @@ using System.Collections.Generic;
 
 public class ThemeService : IDisposable
 {
-    private static ThemeService? _instance;
     public static ThemeService Instance => _instance ??= new ThemeService();
     
+    private static ThemeService? _instance;
     private const string StylesPath = "styles.json";
     private const string DefaultStyle = "white bold";
     private readonly Dictionary<string, string>? _styles;
