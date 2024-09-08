@@ -17,6 +17,9 @@ public static class SystemInfo
 
         foreach (var property in properties)
         {
+            var autoRender = Types.PresentationTypes.SystemInfo.AutoRender(property.Name);
+            if (!autoRender) continue;
+            
             var displayName = Types.PresentationTypes.SystemInfo.GetDisplayName(property.Name);
             string displayValue = property.GetValue(systemInfo)?.ToString() ?? "N/A";
             
