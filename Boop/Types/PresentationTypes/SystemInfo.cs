@@ -1,6 +1,6 @@
 ﻿namespace Boop.Types.PresentationTypes;
 
-public class SystemInfo
+public record SystemInfo
 {
     public string MachineName { get; init; }
     public string CPUModel { get; init; }
