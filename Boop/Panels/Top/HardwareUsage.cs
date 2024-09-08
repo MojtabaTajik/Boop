@@ -3,7 +3,7 @@
 public static class HardwareUsage
 {
     private static readonly List<BarChartItem> Items = new();
-    
+
     public static void AddHardwareInfo(string title, int value)
     {
         var color = value switch
@@ -21,13 +21,12 @@ public static class HardwareUsage
         var chart = new BarChart()
             .AddItems(Items)
             .WithMaxValue(100)
-            .UseValueFormatter(HardwareUsageValueFormatter()); 
+            .UseValueFormatter(HardwareUsageValueFormatter());
 
         return new Panel(chart)
             .Header(title)
-            .Expand()  
-            .Border(BoxBorder.Square);
+            .Expand();
     }
-    
+
     private static Func<double, string> HardwareUsageValueFormatter() => value => $"{value}%";
 }
